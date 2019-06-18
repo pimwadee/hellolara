@@ -15,7 +15,7 @@ workflows:
   version: 2 
   deploy:
     jobs:
-      - test
+      test:
       docker:
       - image: edbizarro/gitlab-ci-pipeline-php:7.2
     working_directory: /var/www/html
