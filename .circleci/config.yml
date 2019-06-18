@@ -12,9 +12,7 @@ jobs:
       - run: mkdir -p tests/_output
       - run: vendor/bin/phpunit
 workflows:
-  version: 2
+  version: 2 
+  deploy:
     jobs:
-      test:
-      docker:
-      - image: edbizarro/gitlab-ci-pipeline-php:7.2
-    working_directory: /var/www/html
+      - test
