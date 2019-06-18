@@ -1,8 +1,18 @@
 version: 2
 jobs:
-  build:
+  test:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: edbizarro/gitlab-ci-pipeline-php:7.2
+    working_directory: /var/www/html
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run: composer install --no-interaction --no-progress   
+      - run: touch storage/test.sqlite
+      - run: php artisan migrate --seed --env=testing --force
+      - run: mkdir -p tests/_output
+      - run: vendor/bin/phpunit
+workflows:
+  version: 2 
+  deploy:
+    jobs:
+      - test
