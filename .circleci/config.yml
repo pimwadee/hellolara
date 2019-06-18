@@ -12,8 +12,7 @@ jobs:
       - run: mkdir -p tests/_output
       - run: vendor/bin/phpunit
 workflows:
-  version: 2 
-  deploy:
+  version: 2
     jobs:
       test:
       docker:
