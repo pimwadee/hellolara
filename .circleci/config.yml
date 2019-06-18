@@ -12,9 +12,9 @@ jobs:
       - run: mkdir -p tests/_output
       - run: vendor/bin/phpunit --log-junit tests/_output/junit.xml
       - store_test_results:
-        path: tests/_output
+          path: tests/_output
       - store_artifacts:
-        path: tests/_output
+          path: tests/_output
 workflows:
   version: 2 
   deploy:
